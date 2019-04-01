@@ -2,17 +2,16 @@ from relfinder import Relfinder
 import relfinder_utils as relu
 import html, pprint
 
+#definitions
 source = 'Immanuel_Kant'
 dest = 'Georg_Wilhelm_Friedrich_Hegel'
 out_file = 'relations.csv'
 ignored_props = ['22-rdf-syntax-ns#type', 'owl#sameAs', 'DUL.owl#NaturalPerson', 'owl#equivalentClass']
+maxDistance = 4
 
 first = 'http://dbpedia.org/resource/{}'.format(source)
 second = 'http://dbpedia.org/resource/{}'.format(dest)
-
 rf = Relfinder()
-
-maxDistance = 4
 
 queries = rf.getQueries(first, second, maxDistance, 10, [], ['http://www.w3.org/1999/02/22-rdf-syntax-ns#type','http://www.w3.org/2004/02/skos/core#subject'], True)
 
